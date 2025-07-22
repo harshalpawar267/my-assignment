@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useParams } from '@tanstack/react-router'; // Replace with TanStack Router hook
+import { useParams } from '@tanstack/react-router';
 
 interface Character {
   id: number;
@@ -26,7 +26,7 @@ const fetchCharacterDetails = async (id: string): Promise<Character> => {
 };
 
 const CharacterDetails = () => {
-  const { characterId } = useParams({ from: '/character/$characterId' }); // Get characterId from URL parameters
+  const { characterId } = useParams({ from: '/character/$characterId' }); 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['character', characterId],
     queryFn: () => fetchCharacterDetails(characterId),
